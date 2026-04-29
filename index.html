@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion Heldibridle</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2e02485058.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+    (function(){
+      emailjs.init("SxR8S_WyeQEze7xdl");
+    })();
+</script>
+</head>
+<body>
+    <section id="landing-page" onmousemove="moveBackground(event)">
+        <nav>
+            <figure>
+                <img id="personal-logo" src="./assets/OrionH Coding Logo.png" alt="">            
+            </figure>
+            <ul class="nav__link--list">
+                <li class="nav__link" onclick="toggleModal()">
+                    <a href="#about" class="
+                        nav__link--anchor
+                        link__hover-effect
+                        link__hover-effect--black"
+                    >About</a>
+                </li>
+                <li class="nav__link">
+                    <a href="#projects" class="
+                        nav__link--anchor
+                        link__hover-effect
+                        link__hover-effect--black"
+                    >Projects</a>
+                </li>
+                <li class="nav__link" onclick="toggleModal()">
+                    <a href="#contact" class="
+                        nav__link--anchor
+                        link__hover-effect
+                        link__hover-effect--black"
+                    >Contact</a>
+                </li>    
+                <li class="nav__link click" onclick="toggleContrast()">
+                    <a href="#" class="
+                        nav__link--anchor
+                        link__hover-effect
+                        link__hover-effect--black"
+                    ><i class="fa-solid fa-circle-half-stroke"></i></a>
+                </li>    
+            </ul>
+        </nav>
+        <header class="header">
+            <div class="header__content">
+                <h1 class="title">Hey</h1>
+                <h1 class="title bluegreen">I'm Orion.</h1>
+                <p class="header__para">
+                    I'm a <b class="bluegreen">Frontend Software Engineer</b>  
+                    with a passion for building beautiful and functional 
+                    <b class="bluegreen">user friendly</b> web applications. 
+                    <br>
+                    Here's a bit more <b class="bluegreen click" onclick="toggleModal()">about me</b>. 
+                </p>
+                <div class="social__list">
+                    <a href="https://www.linkedin.com/in/orion-heldibridle-36938923a/" class="social__link click" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/OrionH-byte" class="social__link click" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="./assets/Orion-Renee-Heldibridle-Resume.pdf" class="social__link click" target="_blank">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <button class="mail__button click" onclick="toggleModal()">
+            <a href="mailto:rionb698@gmail.com" class="mail__link">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </button>
+        <a href="#projects" class="scroll">
+            <div class="scroll__icon click">
+                <i class="fa-solid fa-circle-chevron-down"></i>
+            </div>
+        </a>
+        <div class="modal">
+            <div class="modal__half modal__about">
+                <h3 class="modal__title modal__title--about">Here's a bit about me.</h3>
+                <h4 class="modal__sub-title modal__sub-title--about">Frontend Software Engineer</h4>
+                <p class="modal__para">
+                    I am a Florida-based <b class="bluegreen">Frontend Software Engineer</b> with a passion for developing 
+                    visually appealing and <b class="bluegreen">user-friendly</b> web applications.
+                    <br>
+                    I have experience working with a variety of <b class="bluegreen">frontend technologies</b>, including
+                    HTML, CSS, JavaScript, and React. 
+                </p>
+                <div class="modal__languages">
+                    <figure class="modal__language">
+                        <img src="./assets/icons8-html-5-480.png" alt="" class="modal__language--img">
+                        <span class="language__name">HTML</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img src="./assets/icons8-css-logo-480.png" alt="" class="modal__language--img">
+                        <span class="language__name">CSS</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img src="./assets/javascript_logo.png" alt="" class="modal__language--img">
+                        <span class="language__name">JavaScript</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img src="./assets/react_logo.png" alt="" class="modal__language--img">
+                        <span class="language__name">React</span>
+                    </figure>
+                </div>
+            </div>
+            <div class="modal__half modal__contact">
+                <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+                <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
+                <h4 class="modal__sub-title modal__sub-title--contact">I am currently open to new opportunities.</h4>
+                <form id="contact__form" onsubmit="contact(event)">
+                    <div class="form__item">
+                        <label class="form__item--label">Name:</label>
+                        <input type="text" name="user_name" class="input" required>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Email:</label>
+                        <input type="email" name="user_email" class="input" required>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Message:</label>
+                        <textarea name="message" class="textarea" required></textarea>
+                        <button id="contact__submit" class="form__submit click">Send it my way!</button>
+                    </div>
+                </form>
+                <div class="modal__overlay modal__overlay--loading">
+                    <i class="fas fa-spinner"></i>
+                </div>  
+                <div class="modal__overlay modal__overlay--success">
+                    Thanks for the message! Looking forward to speaking to you soon.
+                </div>  
+            </div>
+        </div>
+        <img src="./assets/semi circle.svg" class="shape shape--0">
+        <img src="./assets/circle.svg" class="shape shape--1">
+        <img src="./assets/squiggly.svg" class="shape shape--2">
+        <img src="./assets/circle.svg" class="shape shape--3">
+        <img src="./assets/triangle.svg" class="shape shape--4">
+        <img src="./assets/circle.svg" class="shape shape--5">
+        <img src="./assets/squiggly.svg" class="shape shape--6">
+        <img src="./assets/circle.svg" class="shape shape--7">
+        <img src="./assets/semi circle.svg" class="shape shape--8">
+    </section>
+    <section id="projects">
+        <div class="container">
+            <h1 class="section__title">
+                Here are some of my <span class="bluegreen">projects</span>. 
+            </h1>
+            <ul class="project__list">
+                <li class="project">
+                    <div class="project__wrapper">
+                        <img src="./assets/blinker mockup.png" alt="" class="project__img">
+                        <div class="project__wrapper--bg"></div>
+                        <div class="project__description">
+                            <h3 class="project__description--title">
+                                Clickable Gallery Project
+                            </h3>
+                            <h4 class="project__description--subtitle">
+                                HTML & CSS
+                            </h4>
+                            <p class="project__description--para">
+                                A simple clickable gallery implementation using CSS and HTML.
+                            </p>
+                            <div class="project__description--links">
+                                <a href="https://www.github.com/OrionH-byte" class="project__description--link">
+                                    <i class="fa-brands fa-square-github"></i>
+                                </a>
+                                <a href="#" class="project__description--link">
+                                    <i class="fa-solid fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="project">
+                    <div class="project__wrapper">
+                        <img src="./assets/chat.png" alt="" class="project__img">
+                        <div class="project__wrapper--bg"></div>
+                        <div class="project__description">
+                            <h3 class="project__description--title">
+                                ChatBot Project
+                            </h3>
+                            <h4 class="project__description--subtitle">
+                                HTML & CSS
+                            </h4>
+                            <p class="project__description--para">
+                                A simple chatbot implementation using CSS and HTML.
+                            </p>
+                            <div class="project__description--links">
+                                <a href="https://www.github.com/OrionH-byte" class="project__description--link">
+                                    <i class="fa-brands fa-square-github"></i>
+                                </a>
+                                <a href="#" class="project__description--link">
+                                    <i class="fa-solid fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="project">
+                    <div class="project__wrapper">
+                        <img src="./assets/google mockup.png" alt="" class="project__img">
+                        <div class="project__wrapper--bg"></div>
+                        <div class="project__description">
+                            <h3 class="project__description--title">
+                                Treact Re-Build Project
+                            </h3>
+                            <h4 class="project__description--subtitle">
+                                HTML, CSS, JavaScript
+                            </h4>
+                            <p class="project__description--para">
+                                A simple Treact re-build implementation using CSS, HTML, and JavaScript.
+                            </p>
+                            <div class="project__description--links">
+                                <a href="https://www.github.com/OrionH-byte" class="project__description--link">
+                                    <i class="fa-brands fa-square-github"></i>
+                                </a>
+                                <a href="#" class="project__description--link">
+                                    <i class="fa-solid fa-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer__row">
+                <figure>
+                    <img class="footer__logo--img" src="./assets/OrionH Coding Logo.png" alt="">
+                </figure>
+                <div class="footer__social--list">
+                    <a href="#" class="footer__social--link click 
+                        link__hover-effect
+                        link__hover-effect--white">
+                        GitHub
+                    </a>
+                    <a href="#" class="footer__social--link click
+                        link__hover-effect
+                        link__hover-effect--white">
+                        LinkedIn
+                    </a>
+                    <a href="#" class="footer__social--link click
+                        link__hover-effect
+                        link__hover-effect--white">
+                        Contact
+                    </a>
+                    <a href="#" class="footer__social--link click
+                        link__hover-effect
+                        link__hover-effect--white">
+                        Resume
+                    </a>
+                </div>
+                <div class="footer__copyright">
+                    Copyright &copy; 2026 Orion Heldibridle. 
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
